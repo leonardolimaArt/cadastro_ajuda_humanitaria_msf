@@ -1,8 +1,5 @@
 package projeto_aranoua.cadastro_ajuda_humanitaria_msf.model;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Voluntario {
@@ -16,6 +13,9 @@ public class Voluntario {
     private String telefone;
     private String email;
     private String tipoSangue;
+
+    @ManyToOne
+    private SituacaoSaude situacaoSaude;
 
     public long getId() {
         return id;
