@@ -15,7 +15,8 @@ public class Cidade {
     @Column(nullable = false, unique = true)
     private String ibge;
 
-    @ManyToOne @Column(nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "pais_id", nullable = false)
     private Pais pais;
 
     public Long getId() {
@@ -42,11 +43,11 @@ public class Cidade {
         this.ibge = ibge;
     }
 
-    public Pais getEstado() {
+    public Pais getPais() {
         return pais;
     }
 
-    public void setEstado(Pais pais) {
+    public void setPais(Pais pais) {
         this.pais = pais;
     }
 }

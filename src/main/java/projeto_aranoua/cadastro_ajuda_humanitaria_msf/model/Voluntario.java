@@ -26,10 +26,12 @@ public class Voluntario {
     @Column(nullable = false)
     private String tipoSangue;
 
-    @ManyToOne @Column(nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "situacaoSaude_id", nullable = false)
     private SituacaoSaude situacaoSaude;
 
-    @ManyToOne @Column(nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "cidade_id", nullable = false)
     private Cidade cidade;
 
     public long getId() {

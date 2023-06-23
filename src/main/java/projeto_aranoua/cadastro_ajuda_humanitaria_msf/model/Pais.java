@@ -12,7 +12,7 @@ public class Pais {
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String sigla;
 
     public long getId() {

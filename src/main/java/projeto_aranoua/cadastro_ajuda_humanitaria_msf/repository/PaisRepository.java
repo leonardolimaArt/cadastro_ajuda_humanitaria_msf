@@ -10,4 +10,7 @@ public interface PaisRepository extends CrudRepository<Pais, Long> {
 
     @Query("select p from Pais p")
     List<Pais> list();
+
+    @Query("select p from Pais p where p.sigla = :parSigla")
+    Pais findOneBySigla(String parSigla);
 }
