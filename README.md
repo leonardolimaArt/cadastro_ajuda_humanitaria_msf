@@ -5,4 +5,5 @@ Projeto referente a avalição geral do curso de extensão do projeto aranouá.
 
 - Matheus Assunção
 - Carlos Mafra
+- Carlos Pereira
 - Leonardo Henrique
