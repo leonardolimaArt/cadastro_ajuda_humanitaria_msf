@@ -11,6 +11,7 @@ public class SituacaoSaude {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    private String situacao;
 
     public long getId() {
         return id;
@@ -18,5 +19,13 @@ public class SituacaoSaude {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
     }
 }

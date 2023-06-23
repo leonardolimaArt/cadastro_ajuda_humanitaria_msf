@@ -7,15 +7,30 @@ public class Voluntario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(nullable = false, unique = true)
     private String passaporte;
+
+    @Column(nullable = false)
     private String nomeCompleto;
+
+    @Column(nullable = false)
     private String idade;
+
+    @Column(nullable = false)
     private String telefone;
+
+    @Column(nullable = false)
     private String email;
+
+    @Column(nullable = false)
     private String tipoSangue;
 
     @ManyToOne
     private SituacaoSaude situacaoSaude;
+
+    @ManyToOne
+    private Cidade cidade;
 
     public long getId() {
         return id;
@@ -71,5 +86,21 @@ public class Voluntario {
 
     public void setTipoSangue(String tipoSangue) {
         this.tipoSangue = tipoSangue;
+    }
+
+    public SituacaoSaude getSituacaoSaude() {
+        return situacaoSaude;
+    }
+
+    public void setSituacaoSaude(SituacaoSaude situacaoSaude) {
+        this.situacaoSaude = situacaoSaude;
+    }
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
 }
