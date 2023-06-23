@@ -8,11 +8,14 @@ public class Cidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String nome;
 
     @Column(nullable = false, unique = true)
     private String ibge;
-    @ManyToOne
+
+    @ManyToOne @Column(nullable = false)
     private Pais pais;
 
     public Long getId() {

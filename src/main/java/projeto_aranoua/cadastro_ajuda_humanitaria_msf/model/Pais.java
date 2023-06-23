@@ -1,9 +1,6 @@
 package projeto_aranoua.cadastro_ajuda_humanitaria_msf.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Pais {
@@ -11,7 +8,11 @@ public class Pais {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(nullable = false)
     private String nome;
+
+    @Column(nullable = false)
     private String sigla;
 
     public long getId() {

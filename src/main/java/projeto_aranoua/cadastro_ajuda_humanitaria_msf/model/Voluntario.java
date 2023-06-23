@@ -15,7 +15,7 @@ public class Voluntario {
     private String nomeCompleto;
 
     @Column(nullable = false)
-    private String idade;
+    private int idade;
 
     @Column(nullable = false)
     private String telefone;
@@ -26,10 +26,10 @@ public class Voluntario {
     @Column(nullable = false)
     private String tipoSangue;
 
-    @ManyToOne
+    @ManyToOne @Column(nullable = false)
     private SituacaoSaude situacaoSaude;
 
-    @ManyToOne
+    @ManyToOne @Column(nullable = false)
     private Cidade cidade;
 
     public long getId() {
@@ -56,12 +56,16 @@ public class Voluntario {
         this.nomeCompleto = nomeCompleto;
     }
 
-    public String getIdade() {
+    public int getIdade() {
         return idade;
     }
 
-    public void setIdade(String idade) {
-        this.idade = idade;
+    public void setIdade(int idade) {
+        if(idade >= 18 && idade <= 55 ){
+            this.idade = idade;
+        }else{
+            throw new IllegalArgumentException("Valor incorreto para idade");
+        }
     }
 
     public String getTelefone() {
