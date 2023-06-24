@@ -10,4 +10,4 @@ Projeto referente a avalição geral do curso de extensão do projeto aranouá.
 
 ## Relatório de testes:
 
-Clique [AQUI] para acessar o documento(https://github.com/leonardolimaArt/cadastro_ajuda_humanitaria_msf/blob/master/Relatorio%20de%20Testes%20-%20Av%20Geral%20-%20Ajuda%20Humanit%C3%A1ria%20da%20MSF.pdf).
+This site was built using [GitHub Pages](https://pages.github.com/).
