@@ -14,6 +14,7 @@ public class SituacaoSauderepositoryTest {
     @Autowired
     SituacaoRepository situacaoRepository;
 
+    //RN-05: O voluntário deve ter sua situação de saúde declarada (Opções: Ruim, Bom, Ótimo).
     @Test
     @DisplayName("Deve salvar com os dados corretos")
     public void deveSalvarComOsDadosCorretos(){
@@ -28,6 +29,7 @@ public class SituacaoSauderepositoryTest {
 
     }
 
+    //RN-05: O voluntário deve ter sua situação de saúde declarada (Opções: Ruim, Bom, Ótimo).
     @Test
     @DisplayName("Não deve salvar situacao com valor maior que 3")
     public void naoDeveSalvarSituacaoComValorMaiorQue3(){

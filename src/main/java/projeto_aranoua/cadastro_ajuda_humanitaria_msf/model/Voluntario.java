@@ -1,4 +1,6 @@
 package projeto_aranoua.cadastro_ajuda_humanitaria_msf.model;
+import org.springframework.dao.DataIntegrityViolationException;
+
 import javax.persistence.*;
 
 @Entity
@@ -66,7 +68,7 @@ public class Voluntario {
         if(idade >= 18 && idade <= 55 ){
             this.idade = idade;
         }else{
-            throw new IllegalArgumentException("Valor incorreto para idade");
+            throw new DataIntegrityViolationException("Valor incorreto para idade");
         }
     }
 
