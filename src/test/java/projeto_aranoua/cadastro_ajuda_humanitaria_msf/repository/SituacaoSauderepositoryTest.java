@@ -28,12 +28,13 @@ public class SituacaoSauderepositoryTest {
 
     }
 
-//    @Test
-//    @DisplayName("Não deve salvar situacao com valor maior que 3")
-//    public void naoDeveSalvarSituacaoComValorMaiorQue3(){
-//        SituacaoSaude situacaoSaude = new SituacaoSaude();
-//        situacaoSaude.setSituacao(4);
-//
-//        Assertions.assertThrows(DataIntegrityViolationException.class, () -> situacaoRepository.save(situacaoSaude).);
-//    }
+    @Test
+    @DisplayName("Não deve salvar situacao com valor maior que 3")
+    public void naoDeveSalvarSituacaoComValorMaiorQue3(){
+        SituacaoSaude situacaoSaude = new SituacaoSaude();
+        Assertions.assertThrows(DataIntegrityViolationException.class, () -> {
+            situacaoSaude.setSituacao(4);
+            situacaoRepository.save(situacaoSaude);
+        });
+    }
 }

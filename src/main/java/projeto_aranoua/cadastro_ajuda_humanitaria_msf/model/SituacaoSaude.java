@@ -1,5 +1,7 @@
 package projeto_aranoua.cadastro_ajuda_humanitaria_msf.model;
 
+import org.springframework.dao.DataIntegrityViolationException;
+
 import javax.persistence.*;
 
 @Entity
@@ -39,7 +41,7 @@ public class SituacaoSaude {
                 break;
 
             default:
-                throw new IllegalArgumentException("Valor inválido, consulte as opções.");
+                throw new DataIntegrityViolationException("Valor inválido, consulte as opções.");
         }
     }
 }

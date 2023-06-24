@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.dao.DataIntegrityViolationException;
 import projeto_aranoua.cadastro_ajuda_humanitaria_msf.model.Cidade;
 import projeto_aranoua.cadastro_ajuda_humanitaria_msf.model.Pais;
 import projeto_aranoua.cadastro_ajuda_humanitaria_msf.model.SituacaoSaude;
@@ -82,7 +83,33 @@ public class VoluntarioRepositoryTest {
 
     @Test
     @DisplayName("Não Deve salvar com ")
-    public void naoDeveSalvarComOss(){
+    public void naoDeveSalvarComOsMesmoDadosDoPassaporte(){
+        Cidade cidade = preparaPreCondicao1();
+        SituacaoSaude situacaoSaude = preparaPreCondicao2();
+
+        Voluntario voluntario = new Voluntario();
+        voluntario.setPassaporte("123456789");
+        voluntario.setNomeCompleto("Fulaninho");
+        voluntario.setIdade(50);
+        voluntario.setTelefone("99999-9999");
+        voluntario.setEmail("teste01@email.com");
+        voluntario.setTipoSangue("A+");
+        voluntario.setCidade(cidade);
+        voluntario.setSituacaoSaude(situacaoSaude);
+
+        voluntarioRepository.save(voluntario);
+
+        Voluntario voluntario01 = new Voluntario();
+        voluntario01.setPassaporte("123456789");
+        voluntario01.setNomeCompleto("Fulaninho");
+        voluntario01.setIdade(50);
+        voluntario01.setTelefone("99999-9999");
+        voluntario01.setEmail("teste01@email.com");
+        voluntario01.setTipoSangue("A+");
+        voluntario.setCidade(cidade);
+        voluntario.setSituacaoSaude(situacaoSaude);
+
+        Assertions.assertThrows(DataIntegrityViolationException.class, () -> voluntarioRepository.save(voluntario01));
 
     }
 
