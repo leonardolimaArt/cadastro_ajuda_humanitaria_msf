@@ -71,7 +71,6 @@ public class VoluntarioRepositoryTest {
         voluntario.setEmail("teste01@email.com");
         voluntario.setTipoSangue("A+");
         voluntario.setCidade(preparaPreCondicao1());
-        voluntario.setSituacaoSaude(preparaPreCondicao2());
 
         voluntarioRepository.save(voluntario);
 
@@ -95,7 +94,6 @@ public class VoluntarioRepositoryTest {
         voluntario.setEmail("teste01@email.com");
         voluntario.setTipoSangue("A+");
         voluntario.setCidade(cidade);
-        voluntario.setSituacaoSaude(situacaoSaude);
 
         voluntarioRepository.save(voluntario);
 
@@ -107,7 +105,6 @@ public class VoluntarioRepositoryTest {
         voluntario01.setEmail("teste01@email.com");
         voluntario01.setTipoSangue("A+");
         voluntario.setCidade(cidade);
-        voluntario.setSituacaoSaude(situacaoSaude);
 
         Assertions.assertThrows(DataIntegrityViolationException.class, () -> voluntarioRepository.save(voluntario01));
 
